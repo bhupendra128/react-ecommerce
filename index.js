@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import App from './app.js';
+import { ThemeProvider } from 'styled-components';
+import Theme from './src/assests/styles/theme';
 import './style.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+class AppRoot extends Component {
 
   render() {
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+      <ThemeProvider theme={Theme}>
+     <App />
+        </ThemeProvider>
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<AppRoot />, document.getElementById('root'));
